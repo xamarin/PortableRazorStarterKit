@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Net.Http;
-using System.Text;
 using System.IO;
 using System.Xml.Linq;
 using System.Linq;
@@ -11,6 +10,8 @@ namespace PortableCongress
 {
 	public class WebAccess
 	{
+        const string API_KEY = "609b2b4b92f74ce9ac5c86487146d107";
+
 		public WebAccess ()
 		{
 		}
@@ -33,7 +34,7 @@ namespace PortableCongress
 		public static async Task<Committees> GetCommitteesAsync(int id, string bioGuideId)
 		{
 			using (var httpClient = new HttpClient ()) {
-				string url = String.Format ("http://services.sunlightlabs.com/api/committees.allForLegislator.xml?apikey=f20b44ed08e145a524d10d8dbeb4b911&bioguide_id={0}", bioGuideId);
+                string url = String.Format ("http://services.sunlightlabs.com/api/committees.allForLegislator.xml?apikey={0}&bioguide_id={1}", API_KEY, bioGuideId);
 
 				var response = await httpClient.GetAsync (url);
 				var stream = await response.Content.ReadAsStreamAsync ();
