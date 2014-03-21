@@ -24,7 +24,7 @@ public partial class RecentVotesList : PortableRazor.ViewBase
 #line hidden
 
 #line 2 "RecentVotesList.cshtml"
-public RecentVotes Model { get; set; }
+public PortableCongress.RecentVotes Model { get; set; }
 
 #line default
 #line hidden

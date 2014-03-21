@@ -24,7 +24,7 @@ public partial class PoliticianView : PortableRazor.ViewBase
 #line hidden
 
 #line 2 "PoliticianView.cshtml"
-public Politician Model { get; set; }
+public PortableCongress.Politician Model { get; set; }
 
 #line default
 #line hidden

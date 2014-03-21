@@ -24,7 +24,7 @@ public partial class PoliticianList : PortableRazor.ViewBase
 #line hidden
 
 #line 2 "PoliticianList.cshtml"
-public List<Politician> Model { get; set; }
+public System.Collections.Generic.List<Politician> Model { get; set; }
 
 #line default
 #line hidden

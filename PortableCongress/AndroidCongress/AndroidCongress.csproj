@@ -17,7 +17,7 @@
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
     <AssemblyName>AndroidCongress</AssemblyName>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
-    <TargetFrameworkVersion>v4.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.4</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -79,7 +79,7 @@
       <Project>{FFDC76DD-571A-4326-9776-170A82AD7E44}</Project>
       <Name>PortableCongress</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\PortableRazor.csproj">
+    <ProjectReference Include="..\..\PortableRazor\PortableRazor.csproj">
       <Project>{A083FFE5-5433-4772-8728-69FC16429801}</Project>
       <Name>PortableRazor</Name>
     </ProjectReference>

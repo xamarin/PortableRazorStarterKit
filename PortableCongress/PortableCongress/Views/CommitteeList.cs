@@ -24,7 +24,7 @@ public partial class CommitteeList : PortableRazor.ViewBase
 #line hidden
 
 #line 2 "CommitteeList.cshtml"
-public Committees Model { get; set; }
+public PortableCongress.Committees Model { get; set; }
 
 #line default
 #line hidden
