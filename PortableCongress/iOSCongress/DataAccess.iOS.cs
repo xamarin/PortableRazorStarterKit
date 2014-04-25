@@ -6,7 +6,7 @@ namespace Congress
 	public partial class DataAccess
 	{
 		public DataAccess() {
-			var dbName = "Congress.sqlite";
+            var dbName = "congress.sqlite";
 			var dataPath = Path.Combine (Environment.GetFolderPath (Environment.SpecialFolder.Personal), dbName);
 			connectionString = "URI=file:" + dataPath;
 		}
