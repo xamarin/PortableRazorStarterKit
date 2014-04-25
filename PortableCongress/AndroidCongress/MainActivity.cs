@@ -1,15 +1,9 @@
 using System;
-using System.Reflection;
 using Android.App;
 using Android.Content;
-using Android.Runtime;
-using Android.Views;
 using Android.Webkit;
-using Android.Widget;
 using Android.OS;
-using Java.Interop;
 using Congress;
-using System.IO;
 using PortableCongress;
 
 namespace AndroidCongress

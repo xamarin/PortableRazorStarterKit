@@ -2,7 +2,6 @@ using System;
 using Android.App;
 using Android.Webkit;
 using PortableRazor;
-using PortableCongress;
 
 namespace AndroidCongress
 {
