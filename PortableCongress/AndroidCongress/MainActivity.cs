@@ -36,6 +36,7 @@ namespace AndroidCongress
 			PortableRazor.RouteHandler.RegisterController ("Politician", politicianController);
 
 			webView.SetWebViewClient (webViewClient);
+            webView.Settings.CacheMode = CacheModes.CacheElseNetwork;
 			webView.Settings.JavaScriptEnabled = true;
 			webView.SetWebChromeClient (new HybridWebChromeClient (this));
 
