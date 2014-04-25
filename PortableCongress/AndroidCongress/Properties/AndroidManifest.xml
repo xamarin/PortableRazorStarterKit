@@ -3,4 +3,5 @@
 	<uses-sdk android:minSdkVersion="8" android:targetSdkVersion="15" />
 	<application android:label="Portable Congress" android:icon="@drawable/ic_launcher">
 	</application>
+	<uses-permission android:name="android.permission.INTERNET" />
 </manifest>
