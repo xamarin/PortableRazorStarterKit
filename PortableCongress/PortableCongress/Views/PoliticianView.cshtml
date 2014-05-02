@@ -19,14 +19,14 @@
     	<h1>@Model.FirstName @Model.LastName</h1>
     </div>
 		
-    <div style="margin-left:10" data-mini="true" data-inset="false">
+    <div style="margin-left:10px" data-mini="true" data-inset="false">
 	    <h4>@Model.FirstName @Model.LastName - @Model.Party @Model.State</h4>
 	    <p><img src='@Model.ImageName'/></p>
 	    <p>@Model.Phone</p>
 		<p>@Model.OfficeAddress</p>
 	</div>
 
-	<div style="margin-left:10; margin-right:10" data-role="collapsible" data-mini="true" data-collapsed="false" data-inset="false">
+	<div style="margin-left:10px; margin-right:10px" data-role="collapsible" data-mini="true" data-collapsed="false" data-inset="false">
 	    <h4>More Info</h4>
 		<ul data-role="listview" data-inset="false">
 			<li>@Html.ActionLink("Recent Votes", "ShowRecentVotes", new {id = @Model.Id })</li>
