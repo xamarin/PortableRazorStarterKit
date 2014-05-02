@@ -1,5 +1,6 @@
 ﻿using System;
 using PortableRazor;
+using PortableCongress.Views;
 
 namespace PortableCongress
 {
