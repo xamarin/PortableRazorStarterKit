@@ -12,15 +12,12 @@ namespace PortableCongress
     {
         const string API_KEY = "609b2b4b92f74ce9ac5c86487146d107";
 
-        public WebAccess ()
-        {
-        }
-
         public static async Task<RecentVotes> GetRecentVotesAsync (int id)
         {
             try {
                 using (var httpClient = new HttpClient ()) {
-                    string url = String.Format ("http://www.govtrack.us/users/events-rss2.xpd?monitors=pv:{0}&days=30", id);
+                 
+                    string url= String.Format("https://www.govtrack.us/api/v2/vote_voter?person={0}&limit=50&sort=-created&format=xml", id);
 
                     var response = await httpClient.GetAsync (url);
                     var stream = await response.Content.ReadAsStreamAsync ();
@@ -31,7 +28,7 @@ namespace PortableCongress
                 }
             } catch (Exception) {
                 var recentVotes = new RecentVotes {Id = id, Votes = new List<Vote> {
-                        new Vote { Title = "Could not connect to the internet" }
+                        new Vote { Question = "Could not connect to the internet" }
                     }
                 };
                 return recentVotes;
@@ -60,6 +57,25 @@ namespace PortableCongress
             }
         }
 
+        public static async Task<Bill> GetBillAsync (int id)
+        {
+            try {
+                using (var httpClient = new HttpClient ()) {
+
+                    string url = String.Format ("https://www.govtrack.us/api/v2/bill/{0}?format=xml", id);
+
+                    var response = await httpClient.GetAsync (url);
+                    var stream = await response.Content.ReadAsStreamAsync ();
+                    var bill = LoadBill(stream, id);
+
+                    return bill;
+                }
+            } catch (Exception) {
+                var bill = new Bill { Id = -1, Title = "Could not connect to the internet" };
+                return bill;
+            }
+        }
+
         static List<Committee> LoadCommittees (Stream stream)
         {
             XDocument committeeData = XDocument.Load (stream);
@@ -75,14 +91,30 @@ namespace PortableCongress
             XDocument voteFeed = XDocument.Load (stream);
 
             var votes = (from item in voteFeed.Descendants ("item")
-                         select new Vote {
-                            Title = item.Element ("title").Value,
-                            PublicationDate = DateTime.Parse (item.Element ("pubDate").Value),
-                            Link = item.Element ("link").Value,
-                            Description = item.Element ("description").Value
-                        }).OrderByDescending (v => v.PublicationDate).ToList ();
+                select new Vote {
+                    Question = item.Element ("vote").Element("question").Value,
+                    PublicationDate = DateTime.Parse (item.Element ("vote").Element ("created").Value),
+                    Link = item.Element ("vote").Element ("link").Value,
+                    Value = item.Element("option").Element("value").Value,
+                    RelatedBillId = item.Element ("vote").Element("related_bill").Value
+                }).OrderByDescending (v => v.PublicationDate).ToList ();
 
             return votes;
+        }
+
+        static Bill LoadBill (Stream stream, int id)
+        {
+            XDocument billXml = XDocument.Load (stream);
+
+            var bill = new Bill {
+                Title = (string)(from title in billXml.Descendants ("title_without_number")
+                    select title).First (),
+                ThomasLink = (string)(from link in billXml.Descendants ("thomas_link")
+                    select link).First (),
+                Id = id
+            };
+
+            return bill;
         }
     }
 }

@@ -18,13 +18,13 @@ using System.Text;
 
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorTemplatePreprocessor", "2.6.0.0")]
-public partial class RecentVotesList : PortableRazor.ViewBase
+public partial class BillView : PortableRazor.ViewBase
 {
 
 #line hidden
 
-#line 2 "RecentVotesList.cshtml"
-public PortableCongress.RecentVotes Model { get; set; }
+#line 2 "BillView.cshtml"
+public PortableCongress.Bill Model { get; set; }
 
 #line default
 #line hidden
@@ -46,7 +46,16 @@ WriteLiteral("></script>\n\t<script");
 
 WriteLiteral(" src=\"jquery.mobile-1.4.0.min.js\"");
 
-WriteLiteral("></script>\n</head>\n<body>\n\t<div");
+WriteLiteral("></script>\n</head>\n<body>\n\t<style>\n\t\tiframe {\n\t\t    min-width: 100%; \n\t\t    width" +
+": 100px;\n\t\t    *width: 100%; \n\t\t}\n\t</style>\n\t<div");
+
+WriteLiteral(" data-role=\"header\"");
+
+WriteLiteral(" style=\"overflow:hidden;\"");
+
+WriteLiteral(" data-position=\"fixed\"");
+
+WriteLiteral(">\n    \t<h1>Bill Details</h1>\n    </div>\n\n    <div");
 
 WriteLiteral(" data-role=\"header\"");
 
@@ -59,8 +68,8 @@ WriteLiteral(">\n");
 WriteLiteral("\t\t");
 
 
-#line 12 "RecentVotesList.cshtml"
-Write(Html.ActionLink("Back", "ShowPoliticianView", new {id = @Model.Id}, new { 
+#line 23 "BillView.cshtml"
+Write(Html.ActionLink("Back", "ShowRecentVotes", new {id = @Model.PoliticianId}, new { 
 			@class="ui-btn-left ui-btn ui-icon-back ui-btn-icon-notext ui-shadow ui-corner-all",
 			data_icon = "arrow-l", 
 			data_role="button", 
@@ -71,66 +80,37 @@ Write(Html.ActionLink("Back", "ShowPoliticianView", new {id = @Model.Id}, new {
 
 #line default
 #line hidden
-WriteLiteral("\n    \t<h1>Recent Votes</h1>\n    </div>\t\t\n\n\t<ul");
+WriteLiteral("\n    \t<h1>Bill Details</h1>\n    </div>\t\n\t\t\n    <div");
 
-WriteLiteral(" data-role=\"listview\"");
+WriteLiteral(" style=\"margin-left:10px\"");
 
-WriteLiteral(" data-inset=\"true\"");
+WriteLiteral(" data-mini=\"true\"");
 
-WriteLiteral(">\n");
+WriteLiteral(" data-inset=\"false\"");
+
+WriteLiteral(">\n\t\t<p>");
 
 
-#line 23 "RecentVotesList.cshtml"
-		
-
-#line default
-#line hidden
-
-#line 23 "RecentVotesList.cshtml"
-   foreach(var vote in Model.Votes) {
+#line 34 "BillView.cshtml"
+Write(Model.Title);
 
 
 #line default
 #line hidden
-WriteLiteral("\t\t\t<li>\n\t\t\t\t<a");
+WriteLiteral("</p>\n\t</div>\n\n\t<iframe");
 
-WriteAttribute ("href", " href=\"", "\""
+WriteLiteral(" scrolling=\"no\"");
 
-#line 25 "RecentVotesList.cshtml"
-, Tuple.Create<string,object,bool> ("", Url.Action("ShowBillView", new {id = vote.RelatedBillId, politicianid =  @Model.Id })
+WriteAttribute ("src", " src=\"", "\""
+
+#line 37 "BillView.cshtml"
+, Tuple.Create<string,object,bool> ("", Model.ThomasLink
 
 #line default
 #line hidden
 , false)
 );
-WriteLiteral(">\n\t    \t\t\t<h4>");
-
-
-#line 26 "RecentVotesList.cshtml"
-       Write(vote.Question);
-
-
-#line default
-#line hidden
-WriteLiteral("</h4><p>");
-
-
-#line 26 "RecentVotesList.cshtml"
-                             Write(vote.Value);
-
-
-#line default
-#line hidden
-WriteLiteral("</p>\n\t\t\t\t</a>\n\t\t    </li>\n");
-
-
-#line 29 "RecentVotesList.cshtml"
-	    }
-
-
-#line default
-#line hidden
-WriteLiteral("\t</ul>\n</body>\n</html>");
+WriteLiteral("></iframe>\n</body>\n</html>");
 
 }
 }

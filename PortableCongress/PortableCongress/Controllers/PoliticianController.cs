@@ -46,6 +46,19 @@ namespace PortableCongress
 			webView.LoadHtmlString (page);
 		}
 
+        public async void ShowBillView(int id, int politicianid) {
+            webView.EvaluateJavascript ("$.mobile.loading( 'show', {\n  text: 'Loading Related Bill ...',\n  " +
+                "textVisible: 'false',\n  theme: 'b',\n  textonly: 'false' });");
+
+            var bill = await WebAccess.GetBillAsync (id);
+            bill.PoliticianId = politicianid;
+
+            var template = new BillView (){ Model = bill };
+            var page = template.GenerateString ();
+
+            webView.LoadHtmlString (page);
+        }
+
 		public async void ShowCommittees(int id, string bioguideid) {
 			webView.EvaluateJavascript ("$.mobile.loading( 'show', {\n  text: 'Loading Committees ...',\n  " +
 				"textVisible: 'false',\n  theme: 'b',\n  textonly: 'false' });");
