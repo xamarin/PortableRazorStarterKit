@@ -18,13 +18,13 @@ using System.Text;
 
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorTemplatePreprocessor", "2.6.0.0")]
-public partial class PoliticianList : PortableRazor.ViewBase
+public partial class FavoriteBillsList : PortableRazor.ViewBase
 {
 
 #line hidden
 
-#line 2 "PoliticianList.cshtml"
-public System.Collections.Generic.List<Politician> Model { get; set; }
+#line 2 "FavoriteBillsList.cshtml"
+public System.Collections.Generic.List<Bill> Model { get; set; }
 
 #line default
 #line hidden
@@ -46,10 +46,6 @@ WriteLiteral("></script>\n\t<script");
 
 WriteLiteral(" src=\"jquery.mobile-1.4.0.min.js\"");
 
-WriteLiteral("></script>\n\t<script");
-
-WriteLiteral(" src=\"jquery.lazyloadxt.js\"");
-
 WriteLiteral("></script>\n</head>\n<body>\n\t<div");
 
 WriteLiteral(" data-role=\"header\"");
@@ -58,80 +54,52 @@ WriteLiteral(" style=\"overflow:hidden;\"");
 
 WriteLiteral(" data-position=\"fixed\"");
 
-WriteLiteral(">\n    \t<h1>Congress</h1>\n    </div>\n\n\t<ul");
+WriteLiteral(">\n    \t<h1>Favorite Bills</h1>\n    </div>\n\n\t<ul");
 
 WriteLiteral(" data-role=\"listview\"");
 
 WriteLiteral(" data-inset=\"true\"");
 
-WriteLiteral(" data-filter-placeholder=\"Search Congress...\"");
-
-WriteLiteral(" data-filter=\"true\"");
-
 WriteLiteral(">\n");
 
 
-#line 17 "PoliticianList.cshtml"
+#line 16 "FavoriteBillsList.cshtml"
 		
 
 #line default
 #line hidden
 
-#line 17 "PoliticianList.cshtml"
-   foreach(var p in Model) {
+#line 16 "FavoriteBillsList.cshtml"
+   foreach(var bill in Model) {
 
 
 #line default
 #line hidden
-WriteLiteral("\t\t\t<li>\n\t\t\t\t<a");
+WriteLiteral("\t\t\t<li>\n\t    \t\t<a");
 
 WriteAttribute ("href", " href=\"", "\""
 
-#line 19 "PoliticianList.cshtml"
-, Tuple.Create<string,object,bool> ("", Url.Action("ShowPoliticianView", new {id = p.Id })
+#line 18 "FavoriteBillsList.cshtml"
+, Tuple.Create<string,object,bool> ("", Url.Action("ShowFavoriteBillView", new {id = bill.Id })
 
 #line default
 #line hidden
 , false)
 );
-WriteLiteral(">\n\t\t\t\t\t<img");
-
-WriteLiteral(" src=\"loader.gif\"");
-
-WriteLiteral(" data-src=\"");
+WriteLiteral(">");
 
 
-#line 20 "PoliticianList.cshtml"
-                                Write(Url.Content(p.ImageName));
+#line 18 "FavoriteBillsList.cshtml"
+                                                                     Write(bill.Title);
 
 
 #line default
 #line hidden
-WriteLiteral("\"");
-
-WriteLiteral("/>\n    \t\t\t\t<h2>");
+WriteLiteral("</a>\n\t\t    </li>\n");
 
 
-#line 21 "PoliticianList.cshtml"
-       Write(Html.Label(String.Format("{0} {1}", p.FirstName, p.LastName)));
-
-
-#line default
-#line hidden
-WriteLiteral("</h2>\n    \t\t\t\t<p>");
-
-
-#line 22 "PoliticianList.cshtml"
-      Write(Html.Label(String.Format("{0} {1}", p.Party, p.State)));
-
-
-#line default
-#line hidden
-WriteLiteral("</p>\n\t\t\t\t</a>\n\t\t\t</li>\n");
-
-
-#line 25 "PoliticianList.cshtml"
-		}
+#line 20 "FavoriteBillsList.cshtml"
+	    }
 
 
 #line default
@@ -152,7 +120,7 @@ WriteLiteral(">\n\t\t\t<ul>\n\t\t\t\t<li><a");
 
 WriteAttribute ("href", " href=\"", "\""
 
-#line 30 "PoliticianList.cshtml"
+#line 25 "FavoriteBillsList.cshtml"
 , Tuple.Create<string,object,bool> ("", Url.Action("ShowPoliticianList")
 
 #line default
@@ -163,7 +131,7 @@ WriteLiteral(">Politicians</a></li>\n\t\t\t\t<li><a");
 
 WriteAttribute ("href", " href=\"", "\""
 
-#line 31 "PoliticianList.cshtml"
+#line 26 "FavoriteBillsList.cshtml"
 , Tuple.Create<string,object,bool> ("", Url.Action("ShowFavoriteBills")
 
 #line default

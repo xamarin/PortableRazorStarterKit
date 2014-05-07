@@ -1,4 +1,5 @@
-﻿@inherits PortableRazor.ViewBase
+﻿
+@inherits PortableRazor.ViewBase
 @model PortableCongress.Bill
 
 <html>
@@ -20,7 +21,7 @@
     </div>
 
     <div data-role="header" style="overflow:hidden;" data-position="fixed">
-		@Html.ActionLink("Back", "ShowRecentVotes", new {id = @Model.PoliticianId}, new { 
+		@Html.ActionLink("Back", "ShowFavoriteBills", null, new { 
 			@class="ui-btn-left ui-btn ui-icon-back ui-btn-icon-notext ui-shadow ui-corner-all",
 			data_icon = "arrow-l", 
 			data_role="button", 
@@ -28,7 +29,7 @@
 			data_inline="true", 
 			data_transition="slide"})
     	<h1>Bill Details</h1>
-    	@Html.ActionLink("Save", "AddFavoriteBill", new {id = @Model.Id}, new { 
+    	@Html.ActionLink("Delete", "RemoveFavoriteBill", new {id = @Model.Id}, new { 
 			@class="ui-btn-right ui-btn ui-btn-icon-notext ui-shadow ui-corner-all",
 			data_role="button", 
 			data_mini="true", 

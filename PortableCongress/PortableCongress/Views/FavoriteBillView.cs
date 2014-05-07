@@ -18,12 +18,12 @@ using System.Text;
 
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorTemplatePreprocessor", "2.6.0.0")]
-public partial class BillView : PortableRazor.ViewBase
+public partial class FavoriteBillView : PortableRazor.ViewBase
 {
 
 #line hidden
 
-#line 2 "BillView.cshtml"
+#line 3 "FavoriteBillView.cshtml"
 public PortableCongress.Bill Model { get; set; }
 
 #line default
@@ -32,6 +32,8 @@ public PortableCongress.Bill Model { get; set; }
 
 public override void Execute()
 {
+WriteLiteral("\n");
+
 WriteLiteral("<html>\n<head>\n\t<link");
 
 WriteLiteral(" rel=\"stylesheet\"");
@@ -68,8 +70,8 @@ WriteLiteral(">\n");
 WriteLiteral("\t\t");
 
 
-#line 23 "BillView.cshtml"
-Write(Html.ActionLink("Back", "ShowRecentVotes", new {id = @Model.PoliticianId}, new { 
+#line 24 "FavoriteBillView.cshtml"
+Write(Html.ActionLink("Back", "ShowFavoriteBills", null, new { 
 			@class="ui-btn-left ui-btn ui-icon-back ui-btn-icon-notext ui-shadow ui-corner-all",
 			data_icon = "arrow-l", 
 			data_role="button", 
@@ -85,8 +87,8 @@ WriteLiteral("\n    \t<h1>Bill Details</h1>\n");
 WriteLiteral("    \t");
 
 
-#line 31 "BillView.cshtml"
-Write(Html.ActionLink("Save", "AddFavoriteBill", new {id = @Model.Id}, new { 
+#line 32 "FavoriteBillView.cshtml"
+Write(Html.ActionLink("Delete", "RemoveFavoriteBill", new {id = @Model.Id}, new { 
 			@class="ui-btn-right ui-btn ui-btn-icon-notext ui-shadow ui-corner-all",
 			data_role="button", 
 			data_mini="true", 
@@ -106,7 +108,7 @@ WriteLiteral(" data-inset=\"false\"");
 WriteLiteral(">\n\t\t<p>");
 
 
-#line 39 "BillView.cshtml"
+#line 40 "FavoriteBillView.cshtml"
 Write(Model.Title);
 
 
@@ -118,7 +120,7 @@ WriteLiteral(" scrolling=\"no\"");
 
 WriteAttribute ("src", " src=\"", "\""
 
-#line 42 "BillView.cshtml"
+#line 43 "FavoriteBillView.cshtml"
 , Tuple.Create<string,object,bool> ("", Model.ThomasLink
 
 #line default

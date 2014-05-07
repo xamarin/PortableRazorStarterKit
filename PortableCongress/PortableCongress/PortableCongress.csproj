@@ -57,6 +57,12 @@
       <DependentUpon>BillView.cshtml</DependentUpon>
     </Compile>
     <Compile Include="Models\Bill.cs" />
+    <Compile Include="Views\FavoriteBillsList.cs">
+      <DependentUpon>FavoriteBillsList.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FavoriteBillView.cs">
+      <DependentUpon>FavoriteBillView.cshtml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>
@@ -87,6 +93,14 @@
     <None Include="Views\BillView.cshtml">
       <Generator>RazorTemplatePreprocessor</Generator>
       <LastGenOutput>BillView.cs</LastGenOutput>
+    </None>
+    <None Include="Views\FavoriteBillsList.cshtml">
+      <Generator>RazorTemplatePreprocessor</Generator>
+      <LastGenOutput>FavoriteBillsList.cs</LastGenOutput>
+    </None>
+    <None Include="Views\FavoriteBillView.cshtml">
+      <Generator>RazorTemplatePreprocessor</Generator>
+      <LastGenOutput>FavoriteBillView.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

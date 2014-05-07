@@ -97,7 +97,7 @@ WriteLiteral("\t\t\t<li>\n\t\t\t\t<a");
 WriteAttribute ("href", " href=\"", "\""
 
 #line 25 "RecentVotesList.cshtml"
-, Tuple.Create<string,object,bool> ("", Url.Action("ShowBillView", new {id = vote.RelatedBillId, politicianid =  @Model.Id })
+, Tuple.Create<string,object,bool> ("", Url.Action("ShowBillView", new {id = vote.RelatedBillId, politicianid = @Model.Id })
 
 #line default
 #line hidden

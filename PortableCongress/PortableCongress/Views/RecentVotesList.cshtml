@@ -22,7 +22,7 @@
 	<ul data-role="listview" data-inset="true">
 		@foreach(var vote in Model.Votes) {
 			<li>
-				<a href="@Url.Action("ShowBillView", new {id = vote.RelatedBillId, politicianid =  @Model.Id })">
+				<a href="@Url.Action("ShowBillView", new {id = vote.RelatedBillId, politicianid = @Model.Id })">
 	    			<h4>@vote.Question</h4><p>@vote.Value</p>
 				</a>
 		    </li>

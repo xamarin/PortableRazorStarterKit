@@ -17,9 +17,6 @@ namespace Congress
 				using (var cmd = connection.CreateCommand ()) {
 					connection.Open ();
 
-					//using (var cmd = new SqliteCommand ("SELECT top 1 bioguide_id, first_name, last_name,  govtrack_id, phone FROM Politician WHERE govtrack_id = @govtrack_id", connection)) {
-					//	cmd.Parameters.Add (new SqliteParameter ("govtrack_id", id.ToString()));
-
 					cmd.CommandText = String.Format ("SELECT bioguide_id, first_name, last_name, govtrack_id, phone, state, party, address FROM Politician WHERE govtrack_id = '{0}'", id);
 
 					using (var reader = cmd.ExecuteReader ()) {
@@ -65,5 +62,64 @@ namespace Congress
 			}
 			return politicians;
 		}
+
+        public void SaveFavoriteBill (Bill bill)
+        {
+            using (var connection = new SqliteConnection (connectionString)) {
+                using (var cmd = connection.CreateCommand ()) {
+                    connection.Open ();
+
+                    string sql = "INSERT OR REPLACE Into FavoriteBills (id, title, thomas_link) Values (@id, @title, @thomas_link)";
+
+                    var idParam = new SqliteParameter ("@id", bill.Id);
+                    var titleParam = new SqliteParameter ("@title", bill.Title);
+                    var thomas_linkParam = new SqliteParameter ("@thomas_link", bill.ThomasLink);
+
+                    cmd.Parameters.Add (idParam); 
+                    cmd.Parameters.Add (titleParam); 
+                    cmd.Parameters.Add (thomas_linkParam); 
+                    cmd.CommandText = sql;
+                    cmd.ExecuteNonQuery ();
+                }
+            }
+        }
+
+        public void DeleteFavoriteBill (int id){
+            using (var connection = new SqliteConnection (connectionString)) {
+                using (var cmd = connection.CreateCommand ()) {
+                    connection.Open ();
+
+                    string sql = "DELETE FROM FavoriteBills Where id=@id";
+                    var idParam = new SqliteParameter ("@id", id);
+                    cmd.Parameters.Add (idParam);
+                    cmd.CommandText = sql;
+                    cmd.ExecuteNonQuery ();
+                }
+            }
+        }
+
+        public List<Bill> LoadFavoriteBills () {
+            var bills = new List<Bill> ();
+
+            using (var connection = new SqliteConnection (connectionString)) {
+                using (var cmd = connection.CreateCommand ()) {
+                    connection.Open ();
+
+                    cmd.CommandText = "SELECT * FROM FavoriteBills";
+
+                    using (var reader = cmd.ExecuteReader ()) {
+                        while (reader.Read ()) {
+                            bills.Add (new Bill { 
+                                Id = Convert.ToInt32(reader ["id"]),
+                                Title = (string)reader ["title"],
+                                ThomasLink = (string)reader ["thomas_link"]
+                            });
+                        }
+                    }
+                }
+            }
+
+            return bills;
+        }
 	}
 }

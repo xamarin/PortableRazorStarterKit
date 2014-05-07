@@ -18,7 +18,7 @@ namespace PortableCongress
 		public void ShowPoliticianList() {
 			var list = dataAccess.LoadAllPoliticans ();
 
-			var template = new PoliticianList () { Model = list };
+			var template = new PoliticianList { Model = list };
 			var page = template.GenerateString ();
 
 			webView.LoadHtmlString (page);
@@ -27,7 +27,7 @@ namespace PortableCongress
 		public Politician ShowPoliticianView(int id) {
 			var politician = dataAccess.LoadPolitician (id);
 
-			var template = new PoliticianView () { Model = politician };
+			var template = new PoliticianView { Model = politician };
 			var page = template.GenerateString ();
 
 			webView.LoadHtmlString (page);
@@ -40,11 +40,21 @@ namespace PortableCongress
 
 			var votes = await WebAccess.GetRecentVotesAsync (id);
 
-			var template = new RecentVotesList () { Model = votes };
+			var template = new RecentVotesList { Model = votes };
 			var page = template.GenerateString ();
 
 			webView.LoadHtmlString (page);
 		}
+
+        public async void AddFavoriteBill(int id) {
+            var bill = await WebAccess.GetBillAsync (id);
+            dataAccess.SaveFavoriteBill (bill);
+        }
+
+        public void RemoveFavoriteBill(int id) {
+            dataAccess.DeleteFavoriteBill (id);
+            ShowFavoriteBills ();
+        }
 
         public async void ShowBillView(int id, int politicianid) {
             webView.EvaluateJavascript ("$.mobile.loading( 'show', {\n  text: 'Loading Related Bill ...',\n  " +
@@ -53,7 +63,28 @@ namespace PortableCongress
             var bill = await WebAccess.GetBillAsync (id);
             bill.PoliticianId = politicianid;
 
-            var template = new BillView (){ Model = bill };
+            var template = new BillView { Model = bill };
+            var page = template.GenerateString ();
+
+            webView.LoadHtmlString (page);
+        }
+
+        public async void ShowFavoriteBillView(int id) {
+            webView.EvaluateJavascript ("$.mobile.loading( 'show', {\n  text: 'Loading Bill ...',\n  " +
+                "textVisible: 'false',\n  theme: 'b',\n  textonly: 'false' });");
+
+            var bill = await WebAccess.GetBillAsync (id);
+    
+            var template = new FavoriteBillView { Model = bill };
+            var page = template.GenerateString ();
+
+            webView.LoadHtmlString (page);
+        }
+
+        public void ShowFavoriteBills() {
+            var bills = dataAccess.LoadFavoriteBills ();
+
+            var template = new FavoriteBillsList { Model = bills };
             var page = template.GenerateString ();
 
             webView.LoadHtmlString (page);
