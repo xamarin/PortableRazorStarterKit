@@ -92,12 +92,12 @@ namespace PortableCongress
 
             var votes = (from item in voteFeed.Descendants ("item")
                 select new Vote {
-                    Question = item.Element ("vote").Element("question").Value,
+                    Question = item.Element ("vote").Element ("question").Value,
                     PublicationDate = DateTime.Parse (item.Element ("vote").Element ("created").Value),
                     Link = item.Element ("vote").Element ("link").Value,
-                    Value = item.Element("option").Element("value").Value,
-                    RelatedBillId = item.Element ("vote").Element("related_bill").Value
-                }).OrderByDescending (v => v.PublicationDate).ToList ();
+                    Value = item.Element ("option").Element ("value").Value,
+                    RelatedBillId = item.Element ("vote").Element ("related_bill").Value
+                }).Where (v => v.RelatedBillId != "null").OrderByDescending (v => v.PublicationDate).ToList ();
 
             return votes;
         }
