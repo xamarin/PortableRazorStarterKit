@@ -10,8 +10,6 @@ namespace PortableCongress
 {
     public class WebAccess
     {
-        const string API_KEY = "609b2b4b92f74ce9ac5c86487146d107";
-
         public static async Task<RecentVotes> GetRecentVotesAsync (int id)
         {
             try {
@@ -35,28 +33,6 @@ namespace PortableCongress
             }
         }
 
-        public static async Task<Committees> GetCommitteesAsync (int id, string bioGuideId)
-        {
-            try {
-                using (var httpClient = new HttpClient ()) {
-                    string url = String.Format ("http://services.sunlightlabs.com/api/committees.allForLegislator.xml?apikey={0}&bioguide_id={1}", API_KEY, bioGuideId);
-
-                    var response = await httpClient.GetAsync (url);
-                    var stream = await response.Content.ReadAsStreamAsync ();
-                    var committeeList = LoadCommittees (stream);
-                    var committees = new Committees { Id = id, CommitteeList = committeeList };
-
-                    return committees;	
-                }
-            } catch (Exception) {
-                var commitees = new Committees {Id = id, CommitteeList = new List<Committee> {
-                        new Committee { Name = "Could not connect to the internet" }
-                    }
-                };
-                return commitees;
-            }
-        }
-
         public static async Task<Bill> GetBillAsync (int id)
         {
             try {
@@ -74,16 +50,6 @@ namespace PortableCongress
                 var bill = new Bill { Id = -1, Title = "Could not connect to the internet" };
                 return bill;
             }
-        }
-
-        static List<Committee> LoadCommittees (Stream stream)
-        {
-            XDocument committeeData = XDocument.Load (stream);
-
-            var committeeList = (from c in committeeData.Descendants ("committee")
-                                 select new Committee { Name = c.Element ("name").Value }).ToList ();
-
-            return committeeList;
         }
 
         static List<Vote> LoadVotes (Stream stream)

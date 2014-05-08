@@ -48,9 +48,6 @@
     </Compile>
     <Compile Include="Models\RecentVotes.cs" />
     <Compile Include="WebAccess.cs" />
-    <Compile Include="Views\CommitteeList.cs">
-      <DependentUpon>CommitteeList.cshtml</DependentUpon>
-    </Compile>
     <Compile Include="Models\Committee.cs" />
     <Compile Include="Models\Committees.cs" />
     <Compile Include="Views\BillView.cs">
@@ -85,10 +82,6 @@
       <LastGenOutput>RecentVotesList.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
-    <None Include="Views\CommitteeList.cshtml">
-      <Generator>RazorTemplatePreprocessor</Generator>
-      <LastGenOutput>CommitteeList.cs</LastGenOutput>
-    </None>
     <None Include="web.config" />
     <None Include="Views\BillView.cshtml">
       <Generator>RazorTemplatePreprocessor</Generator>
