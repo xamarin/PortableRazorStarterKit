@@ -1,8 +1,6 @@
 PortableRazorStarterKit
 =======================
 
-# Portable Razor Starter Kit
-
 The Portable Congress application is a Portable Razor Starter Kit that shows how to use Portable Razor to build a hybrid application with Xamarin, and works with Xamarin Starter Edition. Using JQuery Mobile for the front end, it shows how to build a common core in C#, connected to the front-end through the Razor tempting engine.
 
 The majority of the code in Portable Congress is implemented in a core PortableCongress library. Here you will find the cross-platform views, controllers and web service. Additionally, platform projects are provided to bootstrap the application on both Android and iOS.
