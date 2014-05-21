@@ -121,5 +121,52 @@ namespace Congress
 
             return bills;
         }
+
+        public Bill LoadFavoriteBill (int id)
+        {
+            Bill favBill;
+
+            using (var connection = new SqliteConnection (connectionString)) {
+                using (var cmd = connection.CreateCommand ()) {
+                    connection.Open ();
+
+                    cmd.CommandText = "SELECT * FROM FavoriteBills WHERE id = @id";
+                    var idParam = new SqliteParameter ("@id", id);
+                    cmd.Parameters.Add (idParam);
+
+                    using (var reader = cmd.ExecuteReader ()) {
+                        reader.Read ();
+                        favBill = new Bill { 
+                            Id = Convert.ToInt32 (reader ["id"]),
+                            Title = (string)reader ["title"],
+                            ThomasLink = (string)reader ["thomas_link"],
+                            Notes = reader["notes"] == DBNull.Value ? "" : (string)reader["notes"]
+                        };
+                    }
+                }
+            }
+
+            return favBill;
+        }
+
+        public void SaveNotes (int id, string notes)
+        {
+            using (var connection = new SqliteConnection (connectionString)) {
+                using (var cmd = connection.CreateCommand ()) {
+                    connection.Open ();
+
+                    string sql = "UPDATE FavoriteBills SET notes = @notes WHERE id = @id";
+
+                    var idParam = new SqliteParameter ("@id", id);
+                    var notesParam = new SqliteParameter ("@notes", notes);
+
+                    cmd.Parameters.Add (idParam); 
+                    cmd.Parameters.Add (notesParam); 
+
+                    cmd.CommandText = sql;
+                    cmd.ExecuteNonQuery ();
+                }
+            }
+        }
 	}
 }

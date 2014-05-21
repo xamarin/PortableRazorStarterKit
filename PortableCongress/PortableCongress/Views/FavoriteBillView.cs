@@ -49,7 +49,7 @@ WriteLiteral("></script>\n\t<script");
 WriteLiteral(" src=\"jquery.mobile-1.4.0.min.js\"");
 
 WriteLiteral("></script>\n</head>\n<body>\n\t<style>\n\t\tiframe {\n\t\t    min-width: 100%; \n\t\t    width" +
-": 100px;\n\t\t    *width: 100%; \n\t\t}\n\t</style>\n\t<div");
+": 100px;\n\t\t    *width: 100%; \n\t\t}\n\t\th4 { text-align: center }\n\t</style>\n\t<div");
 
 WriteLiteral(" data-role=\"header\"");
 
@@ -70,7 +70,7 @@ WriteLiteral(">\n");
 WriteLiteral("\t\t");
 
 
-#line 24 "FavoriteBillView.cshtml"
+#line 25 "FavoriteBillView.cshtml"
 Write(Html.ActionLink("Back", "ShowFavoriteBills", null, new { 
 			@class="ui-btn-left ui-btn ui-icon-back ui-btn-icon-notext ui-shadow ui-corner-all",
 			data_icon = "arrow-l", 
@@ -87,7 +87,7 @@ WriteLiteral("\n    \t<h1>Bill Details</h1>\n");
 WriteLiteral("    \t");
 
 
-#line 32 "FavoriteBillView.cshtml"
+#line 33 "FavoriteBillView.cshtml"
 Write(Html.ActionLink("Delete", "RemoveFavoriteBill", new {id = @Model.Id}, new { 
 			@class="ui-btn-right ui-btn ui-btn-icon-notext ui-shadow ui-corner-all",
 			data_role="button", 
@@ -108,19 +108,86 @@ WriteLiteral(" data-inset=\"false\"");
 WriteLiteral(">\n\t\t<p>");
 
 
-#line 40 "FavoriteBillView.cshtml"
+#line 41 "FavoriteBillView.cshtml"
 Write(Model.Title);
 
 
 #line default
 #line hidden
-WriteLiteral("</p>\n\t</div>\n\n\t<iframe");
+WriteLiteral("</p>\n\t</div>\n\t\t\n");
+
+
+#line 44 "FavoriteBillView.cshtml"
+	
+
+#line default
+#line hidden
+
+#line 44 "FavoriteBillView.cshtml"
+  using(@Html.BeginForm("SaveNotes", "Politician", new {id = @Model.Id, notes = @Model.Notes}))
+	{
+
+
+#line default
+#line hidden
+WriteLiteral("\t\t<h4>Notes</h4>\n");
+
+
+#line 47 "FavoriteBillView.cshtml"
+		
+
+#line default
+#line hidden
+
+#line 47 "FavoriteBillView.cshtml"
+Write(Html.Hidden("id", @Model.Id));
+
+
+#line default
+#line hidden
+
+#line 47 "FavoriteBillView.cshtml"
+                               
+		
+
+#line default
+#line hidden
+
+#line 48 "FavoriteBillView.cshtml"
+Write(Html.TextArea("notes", @Model.Notes));
+
+
+#line default
+#line hidden
+
+#line 48 "FavoriteBillView.cshtml"
+                                       
+
+
+#line default
+#line hidden
+WriteLiteral("\t\t<input");
+
+WriteLiteral(" type=\"submit\"");
+
+WriteLiteral(" value=\"Save Notes\"");
+
+WriteLiteral(" />\n");
+
+
+#line 50 "FavoriteBillView.cshtml"
+	}
+
+
+#line default
+#line hidden
+WriteLiteral("\n\t<iframe");
 
 WriteLiteral(" scrolling=\"no\"");
 
 WriteAttribute ("src", " src=\"", "\""
 
-#line 43 "FavoriteBillView.cshtml"
+#line 52 "FavoriteBillView.cshtml"
 , Tuple.Create<string,object,bool> ("", Model.ThomasLink
 
 #line default

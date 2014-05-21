@@ -9,5 +9,6 @@ namespace PortableCongress
         public string Title { get; set; }
         public int PoliticianId { get; set; }
         public string ThomasLink { get; set; }
+        public string Notes { get; set; }
     }
 }

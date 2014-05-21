@@ -10,5 +10,7 @@ namespace PortableCongress
         void SaveFavoriteBill (Bill bill);
         List<Bill> LoadFavoriteBills ();
         void DeleteFavoriteBill (int id);
+        Bill LoadFavoriteBill (int id);
+        void SaveNotes (int id, string notes);
 	}
 }

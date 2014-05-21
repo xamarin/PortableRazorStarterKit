@@ -69,11 +69,11 @@ namespace PortableCongress
             webView.LoadHtmlString (page);
         }
 
-        public async void ShowFavoriteBillView(int id) {
+        public void ShowFavoriteBillView(int id) {
             webView.EvaluateJavascript ("$.mobile.loading( 'show', {\n  text: 'Loading Bill ...',\n  " +
                 "textVisible: 'false',\n  theme: 'b',\n  textonly: 'false' });");
-
-            var bill = await WebAccess.GetBillAsync (id);
+                
+            var bill = dataAccess.LoadFavoriteBill(id);
     
             var template = new FavoriteBillView { Model = bill };
             var page = template.GenerateString ();
@@ -88,6 +88,10 @@ namespace PortableCongress
             var page = template.GenerateString ();
 
             webView.LoadHtmlString (page);
+        }
+
+        public void SaveNotes(int id, string notes) {
+            dataAccess.SaveNotes (id, notes);
         }
 	}
 }

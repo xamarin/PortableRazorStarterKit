@@ -15,6 +15,7 @@
 		    width: 100px;
 		    *width: 100%; 
 		}
+		h4 { text-align: center }
 	</style>
 	<div data-role="header" style="overflow:hidden;" data-position="fixed">
     	<h1>Bill Details</h1>
@@ -39,6 +40,14 @@
     <div style="margin-left:10px" data-mini="true" data-inset="false">
 		<p>@Model.Title</p>
 	</div>
+		
+	@using(@Html.BeginForm("SaveNotes", "Politician", new {id = @Model.Id, notes = @Model.Notes}))
+	{
+		<h4>Notes</h4>
+		@Html.Hidden("id", @Model.Id)
+		@Html.TextArea("notes", @Model.Notes)
+		<input type="submit" value="Save Notes" />
+	}
 
 	<iframe scrolling="no" src="@Model.ThomasLink"></iframe>
 </body>
