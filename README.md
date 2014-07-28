@@ -68,7 +68,17 @@ ShowPoliticianView is implemented in the controller, to query a local data base 
 		return politician;
 	}
 
+## Using with Xamarin Studio on Windows
 
+If you are running with Xamarin Studio on Windows, you'll need to install portable library tools:
+
+http://visualstudiogallery.msdn.microsoft.com/b0e0b5e9-e138-410b-ad10-00cb3caf4981/
+
+Then in the command prompt run:
+
+PortableLibraryTools.exe /buildmachine
+
+Note: Xamarin Studio on Windows does not support iOS development.
 
 
 
