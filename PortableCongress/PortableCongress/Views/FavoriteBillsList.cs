@@ -32,7 +32,17 @@ public System.Collections.Generic.List<Bill> Model { get; set; }
 
 public override void Execute()
 {
-WriteLiteral("<html>\n<head>\n\t<link");
+WriteLiteral("<!DOCTYPE html>\n<html>\n<head>\n\t<meta");
+
+WriteLiteral(" content=\"text/html; charset=utf-8\"");
+
+WriteLiteral("/>\n\t<meta");
+
+WriteLiteral(" name=\"viewport\"");
+
+WriteLiteral(" content=\"width=device-width, initial-scale=1\"");
+
+WriteLiteral("/>\n\t<link");
 
 WriteLiteral(" rel=\"stylesheet\"");
 
@@ -63,13 +73,13 @@ WriteLiteral(" data-inset=\"true\"");
 WriteLiteral(">\n");
 
 
-#line 16 "FavoriteBillsList.cshtml"
+#line 18 "FavoriteBillsList.cshtml"
 		
 
 #line default
 #line hidden
 
-#line 16 "FavoriteBillsList.cshtml"
+#line 18 "FavoriteBillsList.cshtml"
    foreach(var bill in Model) {
 
 
@@ -79,7 +89,7 @@ WriteLiteral("\t\t\t<li>\n\t    \t\t<a");
 
 WriteAttribute ("href", " href=\"", "\""
 
-#line 18 "FavoriteBillsList.cshtml"
+#line 20 "FavoriteBillsList.cshtml"
 , Tuple.Create<string,object,bool> ("", Url.Action("ShowFavoriteBillView", new {id = bill.Id })
 
 #line default
@@ -89,7 +99,7 @@ WriteAttribute ("href", " href=\"", "\""
 WriteLiteral(">");
 
 
-#line 18 "FavoriteBillsList.cshtml"
+#line 20 "FavoriteBillsList.cshtml"
                                                                      Write(bill.Title);
 
 
@@ -98,7 +108,7 @@ WriteLiteral(">");
 WriteLiteral("</a>\n\t\t    </li>\n");
 
 
-#line 20 "FavoriteBillsList.cshtml"
+#line 22 "FavoriteBillsList.cshtml"
 	    }
 
 
@@ -120,7 +130,7 @@ WriteLiteral(">\n\t\t\t<ul>\n\t\t\t\t<li><a");
 
 WriteAttribute ("href", " href=\"", "\""
 
-#line 25 "FavoriteBillsList.cshtml"
+#line 27 "FavoriteBillsList.cshtml"
 , Tuple.Create<string,object,bool> ("", Url.Action("ShowPoliticianList")
 
 #line default
@@ -131,7 +141,7 @@ WriteLiteral(">Politicians</a></li>\n\t\t\t\t<li><a");
 
 WriteAttribute ("href", " href=\"", "\""
 
-#line 26 "FavoriteBillsList.cshtml"
+#line 28 "FavoriteBillsList.cshtml"
 , Tuple.Create<string,object,bool> ("", Url.Action("ShowFavoriteBills")
 
 #line default

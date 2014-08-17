@@ -32,7 +32,17 @@ public PortableCongress.Bill Model { get; set; }
 
 public override void Execute()
 {
-WriteLiteral("<html>\n<head>\n\t<link");
+WriteLiteral("<!DOCTYPE html>\n<html>\n<head>\n\t<meta");
+
+WriteLiteral(" content=\"text/html; charset=utf-8\"");
+
+WriteLiteral("/>\n\t<meta");
+
+WriteLiteral(" name=\"viewport\"");
+
+WriteLiteral(" content=\"width=device-width, initial-scale=1\"");
+
+WriteLiteral("/>\n\t<link");
 
 WriteLiteral(" rel=\"stylesheet\"");
 
@@ -68,7 +78,7 @@ WriteLiteral(">\n");
 WriteLiteral("\t\t");
 
 
-#line 23 "BillView.cshtml"
+#line 25 "BillView.cshtml"
 Write(Html.ActionLink("Back", "ShowRecentVotes", new {id = @Model.PoliticianId}, new { 
 			@class="ui-btn-left ui-btn ui-icon-back ui-btn-icon-notext ui-shadow ui-corner-all",
 			data_icon = "arrow-l", 
@@ -85,7 +95,7 @@ WriteLiteral("\n    \t<h1>Bill Details</h1>\n");
 WriteLiteral("    \t");
 
 
-#line 31 "BillView.cshtml"
+#line 33 "BillView.cshtml"
 Write(Html.ActionLink("Save", "AddFavoriteBill", new {id = @Model.Id}, new { 
 			@class="ui-btn-right ui-btn ui-btn-icon-notext ui-shadow ui-corner-all",
 			data_role="button", 
@@ -106,7 +116,7 @@ WriteLiteral(" data-inset=\"false\"");
 WriteLiteral(">\n\t\t<p>");
 
 
-#line 39 "BillView.cshtml"
+#line 41 "BillView.cshtml"
 Write(Model.Title);
 
 
@@ -118,7 +128,7 @@ WriteLiteral(" scrolling=\"no\"");
 
 WriteAttribute ("src", " src=\"", "\""
 
-#line 42 "BillView.cshtml"
+#line 44 "BillView.cshtml"
 , Tuple.Create<string,object,bool> ("", Model.ThomasLink
 
 #line default

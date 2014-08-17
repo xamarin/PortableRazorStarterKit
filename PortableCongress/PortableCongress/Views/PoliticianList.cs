@@ -32,7 +32,17 @@ public System.Collections.Generic.List<Politician> Model { get; set; }
 
 public override void Execute()
 {
-WriteLiteral("<html>\n<head>\n\t<link");
+WriteLiteral("<!DOCTYPE html>\n<html>\n<head>\n\t<meta");
+
+WriteLiteral(" content=\"text/html; charset=utf-8\"");
+
+WriteLiteral("/>\n\t<meta");
+
+WriteLiteral(" name=\"viewport\"");
+
+WriteLiteral(" content=\"width=device-width, initial-scale=1\"");
+
+WriteLiteral("/>\n\t<link");
 
 WriteLiteral(" rel=\"stylesheet\"");
 
@@ -71,13 +81,13 @@ WriteLiteral(" data-filter=\"true\"");
 WriteLiteral(">\n");
 
 
-#line 17 "PoliticianList.cshtml"
+#line 19 "PoliticianList.cshtml"
 		
 
 #line default
 #line hidden
 
-#line 17 "PoliticianList.cshtml"
+#line 19 "PoliticianList.cshtml"
    foreach(var p in Model) {
 
 
@@ -87,7 +97,7 @@ WriteLiteral("\t\t\t<li>\n\t\t\t\t<a");
 
 WriteAttribute ("href", " href=\"", "\""
 
-#line 19 "PoliticianList.cshtml"
+#line 21 "PoliticianList.cshtml"
 , Tuple.Create<string,object,bool> ("", Url.Action("ShowPoliticianView", new {id = p.Id })
 
 #line default
@@ -101,7 +111,7 @@ WriteLiteral(" src=\"loader.gif\"");
 WriteLiteral(" data-src=\"");
 
 
-#line 20 "PoliticianList.cshtml"
+#line 22 "PoliticianList.cshtml"
                                 Write(Url.Content(p.ImageName));
 
 
@@ -112,7 +122,7 @@ WriteLiteral("\"");
 WriteLiteral("/>\n    \t\t\t\t<h2>");
 
 
-#line 21 "PoliticianList.cshtml"
+#line 23 "PoliticianList.cshtml"
        Write(Html.Label(String.Format("{0} {1}", p.FirstName, p.LastName)));
 
 
@@ -121,7 +131,7 @@ WriteLiteral("/>\n    \t\t\t\t<h2>");
 WriteLiteral("</h2>\n    \t\t\t\t<p>");
 
 
-#line 22 "PoliticianList.cshtml"
+#line 24 "PoliticianList.cshtml"
       Write(Html.Label(String.Format("{0} {1}", p.Party, p.State)));
 
 
@@ -130,7 +140,7 @@ WriteLiteral("</h2>\n    \t\t\t\t<p>");
 WriteLiteral("</p>\n\t\t\t\t</a>\n\t\t\t</li>\n");
 
 
-#line 25 "PoliticianList.cshtml"
+#line 27 "PoliticianList.cshtml"
 		}
 
 
@@ -152,7 +162,7 @@ WriteLiteral(">\n\t\t\t<ul>\n\t\t\t\t<li><a");
 
 WriteAttribute ("href", " href=\"", "\""
 
-#line 30 "PoliticianList.cshtml"
+#line 32 "PoliticianList.cshtml"
 , Tuple.Create<string,object,bool> ("", Url.Action("ShowPoliticianList")
 
 #line default
@@ -163,7 +173,7 @@ WriteLiteral(">Politicians</a></li>\n\t\t\t\t<li><a");
 
 WriteAttribute ("href", " href=\"", "\""
 
-#line 31 "PoliticianList.cshtml"
+#line 33 "PoliticianList.cshtml"
 , Tuple.Create<string,object,bool> ("", Url.Action("ShowFavoriteBills")
 
 #line default

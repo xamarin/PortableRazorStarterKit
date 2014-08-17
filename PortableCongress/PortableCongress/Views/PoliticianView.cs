@@ -32,7 +32,17 @@ public PortableCongress.Politician Model { get; set; }
 
 public override void Execute()
 {
-WriteLiteral("<html>\n<head>\n\t<link");
+WriteLiteral("<!DOCTYPE html>\n<html>\n<head>\n\t<meta");
+
+WriteLiteral(" content=\"text/html; charset=utf-8\"");
+
+WriteLiteral("/>\n\t<meta");
+
+WriteLiteral(" name=\"viewport\"");
+
+WriteLiteral(" content=\"width=device-width, initial-scale=1\"");
+
+WriteLiteral("/>\n\t<link");
 
 WriteLiteral(" rel=\"stylesheet\"");
 
@@ -59,7 +69,7 @@ WriteLiteral(">\n");
 WriteLiteral("\t\t");
 
 
-#line 12 "PoliticianView.cshtml"
+#line 14 "PoliticianView.cshtml"
 Write(Html.ActionLink("Back", "ShowPoliticianList", null, new { 
 			@class="ui-btn-left ui-btn ui-icon-back ui-btn-icon-notext ui-shadow ui-corner-all",
 			data_icon = "arrow-l", 
@@ -74,7 +84,7 @@ Write(Html.ActionLink("Back", "ShowPoliticianList", null, new {
 WriteLiteral("\n    \t<h1>");
 
 
-#line 19 "PoliticianView.cshtml"
+#line 21 "PoliticianView.cshtml"
     Write(Model.FirstName);
 
 
@@ -83,7 +93,7 @@ WriteLiteral("\n    \t<h1>");
 WriteLiteral(" ");
 
 
-#line 19 "PoliticianView.cshtml"
+#line 21 "PoliticianView.cshtml"
                      Write(Model.LastName);
 
 
@@ -100,7 +110,7 @@ WriteLiteral(" data-inset=\"false\"");
 WriteLiteral(">\n\t    <h4>");
 
 
-#line 23 "PoliticianView.cshtml"
+#line 25 "PoliticianView.cshtml"
     Write(Model.FirstName);
 
 
@@ -109,7 +119,7 @@ WriteLiteral(">\n\t    <h4>");
 WriteLiteral(" ");
 
 
-#line 23 "PoliticianView.cshtml"
+#line 25 "PoliticianView.cshtml"
                      Write(Model.LastName);
 
 
@@ -118,7 +128,7 @@ WriteLiteral(" ");
 WriteLiteral(" - ");
 
 
-#line 23 "PoliticianView.cshtml"
+#line 25 "PoliticianView.cshtml"
                                        Write(Model.Party);
 
 
@@ -127,7 +137,7 @@ WriteLiteral(" - ");
 WriteLiteral(" ");
 
 
-#line 23 "PoliticianView.cshtml"
+#line 25 "PoliticianView.cshtml"
                                                     Write(Model.State);
 
 
@@ -137,7 +147,7 @@ WriteLiteral("</h4>\n\t    <p><img");
 
 WriteAttribute ("src", " src=\'", "\'"
 
-#line 24 "PoliticianView.cshtml"
+#line 26 "PoliticianView.cshtml"
 , Tuple.Create<string,object,bool> ("", Model.ImageName
 
 #line default
@@ -147,7 +157,7 @@ WriteAttribute ("src", " src=\'", "\'"
 WriteLiteral("/></p>\n\t    <p>");
 
 
-#line 25 "PoliticianView.cshtml"
+#line 27 "PoliticianView.cshtml"
    Write(Model.Phone);
 
 
@@ -156,7 +166,7 @@ WriteLiteral("/></p>\n\t    <p>");
 WriteLiteral("</p>\n\t\t<p>");
 
 
-#line 26 "PoliticianView.cshtml"
+#line 28 "PoliticianView.cshtml"
 Write(Model.OfficeAddress);
 
 
@@ -183,7 +193,7 @@ WriteLiteral(" data-inset=\"false\"");
 WriteLiteral(">\n\t\t\t<li>");
 
 
-#line 32 "PoliticianView.cshtml"
+#line 34 "PoliticianView.cshtml"
   Write(Html.ActionLink("Recent Votes", "ShowRecentVotes", new {id = @Model.Id }));
 
 

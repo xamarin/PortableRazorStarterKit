@@ -32,7 +32,17 @@ public PortableCongress.RecentVotes Model { get; set; }
 
 public override void Execute()
 {
-WriteLiteral("<html>\n<head>\n\t<link");
+WriteLiteral("<!DOCTYPE html>\n<html>\n<head>\n\t<meta");
+
+WriteLiteral(" content=\"text/html; charset=utf-8\"");
+
+WriteLiteral("/>\n\t<meta");
+
+WriteLiteral(" name=\"viewport\"");
+
+WriteLiteral(" content=\"width=device-width, initial-scale=1\"");
+
+WriteLiteral("/>\n\t<link");
 
 WriteLiteral(" rel=\"stylesheet\"");
 
@@ -59,7 +69,7 @@ WriteLiteral(">\n");
 WriteLiteral("\t\t");
 
 
-#line 12 "RecentVotesList.cshtml"
+#line 14 "RecentVotesList.cshtml"
 Write(Html.ActionLink("Back", "ShowPoliticianView", new {id = @Model.Id}, new { 
 			@class="ui-btn-left ui-btn ui-icon-back ui-btn-icon-notext ui-shadow ui-corner-all",
 			data_icon = "arrow-l", 
@@ -80,13 +90,13 @@ WriteLiteral(" data-inset=\"true\"");
 WriteLiteral(">\n");
 
 
-#line 23 "RecentVotesList.cshtml"
+#line 25 "RecentVotesList.cshtml"
 		
 
 #line default
 #line hidden
 
-#line 23 "RecentVotesList.cshtml"
+#line 25 "RecentVotesList.cshtml"
    foreach(var vote in Model.Votes) {
 
 
@@ -96,7 +106,7 @@ WriteLiteral("\t\t\t<li>\n\t\t\t\t<a");
 
 WriteAttribute ("href", " href=\"", "\""
 
-#line 25 "RecentVotesList.cshtml"
+#line 27 "RecentVotesList.cshtml"
 , Tuple.Create<string,object,bool> ("", Url.Action("ShowBillView", new {id = vote.RelatedBillId, politicianid = @Model.Id })
 
 #line default
@@ -106,7 +116,7 @@ WriteAttribute ("href", " href=\"", "\""
 WriteLiteral(">\n\t    \t\t\t<h4>");
 
 
-#line 26 "RecentVotesList.cshtml"
+#line 28 "RecentVotesList.cshtml"
        Write(vote.Question);
 
 
@@ -115,7 +125,7 @@ WriteLiteral(">\n\t    \t\t\t<h4>");
 WriteLiteral("</h4><p>");
 
 
-#line 26 "RecentVotesList.cshtml"
+#line 28 "RecentVotesList.cshtml"
                              Write(vote.Value);
 
 
@@ -124,7 +134,7 @@ WriteLiteral("</h4><p>");
 WriteLiteral("</p>\n\t\t\t\t</a>\n\t\t    </li>\n");
 
 
-#line 29 "RecentVotesList.cshtml"
+#line 31 "RecentVotesList.cshtml"
 	    }
 
 

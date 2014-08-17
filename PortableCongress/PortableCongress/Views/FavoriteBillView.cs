@@ -23,7 +23,7 @@ public partial class FavoriteBillView : PortableRazor.ViewBase
 
 #line hidden
 
-#line 3 "FavoriteBillView.cshtml"
+#line 2 "FavoriteBillView.cshtml"
 public PortableCongress.Bill Model { get; set; }
 
 #line default
@@ -32,9 +32,17 @@ public PortableCongress.Bill Model { get; set; }
 
 public override void Execute()
 {
-WriteLiteral("\n");
+WriteLiteral("<!DOCTYPE html>\n<html>\n<head>\n\t<meta");
 
-WriteLiteral("<html>\n<head>\n\t<link");
+WriteLiteral(" content=\"text/html; charset=utf-8\"");
+
+WriteLiteral("/>\n\t<meta");
+
+WriteLiteral(" name=\"viewport\"");
+
+WriteLiteral(" content=\"width=device-width, initial-scale=1\"");
+
+WriteLiteral("/>\n\t<link");
 
 WriteLiteral(" rel=\"stylesheet\"");
 
@@ -70,7 +78,7 @@ WriteLiteral(">\n");
 WriteLiteral("\t\t");
 
 
-#line 25 "FavoriteBillView.cshtml"
+#line 26 "FavoriteBillView.cshtml"
 Write(Html.ActionLink("Back", "ShowFavoriteBills", null, new { 
 			@class="ui-btn-left ui-btn ui-icon-back ui-btn-icon-notext ui-shadow ui-corner-all",
 			data_icon = "arrow-l", 
@@ -87,7 +95,7 @@ WriteLiteral("\n    \t<h1>Bill Details</h1>\n");
 WriteLiteral("    \t");
 
 
-#line 33 "FavoriteBillView.cshtml"
+#line 34 "FavoriteBillView.cshtml"
 Write(Html.ActionLink("Delete", "RemoveFavoriteBill", new {id = @Model.Id}, new { 
 			@class="ui-btn-right ui-btn ui-btn-icon-notext ui-shadow ui-corner-all",
 			data_role="button", 
@@ -108,7 +116,7 @@ WriteLiteral(" data-inset=\"false\"");
 WriteLiteral(">\n\t\t<p>");
 
 
-#line 41 "FavoriteBillView.cshtml"
+#line 42 "FavoriteBillView.cshtml"
 Write(Model.Title);
 
 
@@ -117,13 +125,13 @@ Write(Model.Title);
 WriteLiteral("</p>\n\t</div>\n\t\t\n");
 
 
-#line 44 "FavoriteBillView.cshtml"
+#line 45 "FavoriteBillView.cshtml"
 	
 
 #line default
 #line hidden
 
-#line 44 "FavoriteBillView.cshtml"
+#line 45 "FavoriteBillView.cshtml"
   using(@Html.BeginForm("SaveNotes", "Politician", new {id = @Model.Id, notes = @Model.Notes}))
 	{
 
@@ -133,34 +141,34 @@ WriteLiteral("</p>\n\t</div>\n\t\t\n");
 WriteLiteral("\t\t<h4>Notes</h4>\n");
 
 
-#line 47 "FavoriteBillView.cshtml"
+#line 48 "FavoriteBillView.cshtml"
 		
 
 #line default
 #line hidden
 
-#line 47 "FavoriteBillView.cshtml"
+#line 48 "FavoriteBillView.cshtml"
 Write(Html.Hidden("id", @Model.Id));
 
 
 #line default
 #line hidden
 
-#line 47 "FavoriteBillView.cshtml"
+#line 48 "FavoriteBillView.cshtml"
                                
 		
 
 #line default
 #line hidden
 
-#line 48 "FavoriteBillView.cshtml"
+#line 49 "FavoriteBillView.cshtml"
 Write(Html.TextArea("notes", @Model.Notes));
 
 
 #line default
 #line hidden
 
-#line 48 "FavoriteBillView.cshtml"
+#line 49 "FavoriteBillView.cshtml"
                                        
 
 
@@ -175,7 +183,7 @@ WriteLiteral(" value=\"Save Notes\"");
 WriteLiteral(" />\n");
 
 
-#line 50 "FavoriteBillView.cshtml"
+#line 51 "FavoriteBillView.cshtml"
 	}
 
 
@@ -187,7 +195,7 @@ WriteLiteral(" scrolling=\"no\"");
 
 WriteAttribute ("src", " src=\"", "\""
 
-#line 52 "FavoriteBillView.cshtml"
+#line 53 "FavoriteBillView.cshtml"
 , Tuple.Create<string,object,bool> ("", Model.ThomasLink
 
 #line default
