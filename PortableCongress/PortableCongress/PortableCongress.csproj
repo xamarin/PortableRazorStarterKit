@@ -48,8 +48,6 @@
     </Compile>
     <Compile Include="Models\RecentVotes.cs" />
     <Compile Include="WebAccess.cs" />
-    <Compile Include="Models\Committee.cs" />
-    <Compile Include="Models\Committees.cs" />
     <Compile Include="Views\BillView.cs">
       <DependentUpon>BillView.cshtml</DependentUpon>
     </Compile>
