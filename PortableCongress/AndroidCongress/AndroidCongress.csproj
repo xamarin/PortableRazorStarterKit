@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>10.0.0</ProductVersion>
+    <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{6A94AC9A-7C4C-4DC5-8151-F42AB7211C30}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -47,6 +47,9 @@
     <Reference Include="System.Data" />
     <Reference Include="Mono.Data.Sqlite" />
     <Reference Include="System.Web.Services" />
+    <Reference Include="PortableRazor">
+      <HintPath>..\packages\PortableRazor.1.0.0.1\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\PortableRazor.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
@@ -61,6 +64,7 @@
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml" />
@@ -75,10 +79,6 @@
     <ProjectReference Include="..\PortableCongress\PortableCongress.csproj">
       <Project>{FFDC76DD-571A-4326-9776-170A82AD7E44}</Project>
       <Name>PortableCongress</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\PortableRazor\PortableRazor.csproj">
-      <Project>{A083FFE5-5433-4772-8728-69FC16429801}</Project>
-      <Name>PortableRazor</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

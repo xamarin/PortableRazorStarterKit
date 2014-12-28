@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iOSCongress", "iOSCongress\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndroidCongress", "AndroidCongress\AndroidCongress.csproj", "{6A94AC9A-7C4C-4DC5-8151-F42AB7211C30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortableRazor", "..\PortableRazor\PortableRazor.csproj", "{A083FFE5-5433-4772-8728-69FC16429801}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,22 +51,6 @@ Global
 		{9445501C-E899-4432-A694-33498C25CFEE}.Release|iPhone.Build.0 = Release|iPhone
 		{9445501C-E899-4432-A694-33498C25CFEE}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
 		{9445501C-E899-4432-A694-33498C25CFEE}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
-		{A083FFE5-5433-4772-8728-69FC16429801}.Ad-Hoc|iPhone.ActiveCfg = Release|Any CPU
-		{A083FFE5-5433-4772-8728-69FC16429801}.Ad-Hoc|iPhone.Build.0 = Release|Any CPU
-		{A083FFE5-5433-4772-8728-69FC16429801}.AppStore|iPhone.ActiveCfg = Release|Any CPU
-		{A083FFE5-5433-4772-8728-69FC16429801}.AppStore|iPhone.Build.0 = Release|Any CPU
-		{A083FFE5-5433-4772-8728-69FC16429801}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A083FFE5-5433-4772-8728-69FC16429801}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A083FFE5-5433-4772-8728-69FC16429801}.Debug|iPhone.ActiveCfg = Debug|Any CPU
-		{A083FFE5-5433-4772-8728-69FC16429801}.Debug|iPhone.Build.0 = Debug|Any CPU
-		{A083FFE5-5433-4772-8728-69FC16429801}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{A083FFE5-5433-4772-8728-69FC16429801}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{A083FFE5-5433-4772-8728-69FC16429801}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A083FFE5-5433-4772-8728-69FC16429801}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A083FFE5-5433-4772-8728-69FC16429801}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{A083FFE5-5433-4772-8728-69FC16429801}.Release|iPhone.Build.0 = Release|Any CPU
-		{A083FFE5-5433-4772-8728-69FC16429801}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{A083FFE5-5433-4772-8728-69FC16429801}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{FFDC76DD-571A-4326-9776-170A82AD7E44}.Ad-Hoc|iPhone.ActiveCfg = Debug|Any CPU
 		{FFDC76DD-571A-4326-9776-170A82AD7E44}.Ad-Hoc|iPhone.Build.0 = Debug|Any CPU
 		{FFDC76DD-571A-4326-9776-170A82AD7E44}.AppStore|iPhone.ActiveCfg = Debug|Any CPU
@@ -85,8 +67,5 @@ Global
 		{FFDC76DD-571A-4326-9776-170A82AD7E44}.Release|iPhone.Build.0 = Release|Any CPU
 		{FFDC76DD-571A-4326-9776-170A82AD7E44}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{FFDC76DD-571A-4326-9776-170A82AD7E44}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = iOSCongress\iOSCongress.csproj
 	EndGlobalSection
 EndGlobal

@@ -119,11 +119,8 @@
     <Reference Include="System.Net.Http.Extensions">
       <HintPath>..\packages\Microsoft.Net.Http.2.2.18\lib\portable-net40+sl4+win8+wp71\System.Net.Http.Extensions.dll</HintPath>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\PortableRazor\PortableRazor.csproj">
-      <Project>{A083FFE5-5433-4772-8728-69FC16429801}</Project>
-      <Name>PortableRazor</Name>
-    </ProjectReference>
+    <Reference Include="PortableRazor">
+      <HintPath>..\packages\PortableRazor.1.0.0.1\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\PortableRazor.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>
