@@ -31,8 +31,6 @@ namespace AndroidCongress
 				                           new HybridWebView (webView), 
 				                           new DataAccess ());
 
-			webViewClient.SetPoliticianController (politicianController);
-
 			PortableRazor.RouteHandler.RegisterController ("Politician", politicianController);
 
 			webView.SetWebViewClient (webViewClient);
@@ -40,21 +38,10 @@ namespace AndroidCongress
 			webView.Settings.JavaScriptEnabled = true;
 			webView.SetWebChromeClient (new HybridWebChromeClient (this));
 
-			webViewClient.ShowPoliticianList ();
+			politicianController.ShowPoliticianList ();
 		}
 
 		class HybridWebViewClient : WebViewClient {
-
-			PoliticianController politicianController;
-
-			public void SetPoliticianController(PoliticianController controller) {
-				politicianController = controller;
-			}
-
-			public void ShowPoliticianList() {
-				politicianController.ShowPoliticianList ();
-			}
-
 			public override bool ShouldOverrideUrlLoading (WebView webView, string url) {
 
 				var handled = PortableRazor.RouteHandler.HandleRequest (url);
