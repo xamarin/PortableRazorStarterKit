@@ -107,7 +107,7 @@
     <EmbeddedResource Include="Content\images\ajax-loader.gif" />
     <EmbeddedResource Include="App_Data\congress.sqlite" />
     <EmbeddedResource Include="Scripts\jquery.lazyloadxt.js" />
-    <EmbeddedResource Include="App_Data\loader.gif" />
+    <EmbeddedResource Include="Content\images\loader.gif" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Net.Http">

@@ -24,7 +24,7 @@ namespace Congress
 						path = path.Substring (0, lastDot).Replace ('.', Path.DirectorySeparatorChar) + "." + path.Substring (lastDot + 1);
 					else
 						path = path.Replace('.', Path.DirectorySeparatorChar);
-					path = Path.Combine (dataPath, resource.Substring (contentIdentifier.Length));
+					path = Path.Combine (dataPath, path);
 					EnsureResource (assembly, path, resource);
 				} else if (resource.StartsWith (scriptIdentifier)) {
 					var path = Path.Combine (dataPath, resource.Substring (scriptIdentifier.Length));

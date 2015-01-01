@@ -19,7 +19,7 @@
 		@foreach(var p in Model) {
 			<li>
 				<a href="@Url.Action("ShowPoliticianView", new {id = p.Id })">
-					<img src="loader.gif" data-src="@Url.Content(p.ImageName)"/>
+					<img src="images/loader.gif" data-src="@Url.Content(p.ImageName)"/>
     				<h2>@Html.Label(String.Format("{0} {1}", p.FirstName, p.LastName))</h2>
     				<p>@Html.Label(String.Format("{0} {1}", p.Party, p.State))</p>
 				</a>

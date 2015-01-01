@@ -106,13 +106,13 @@ WriteAttribute ("href", " href=\"", "\""
 );
 WriteLiteral(">\n\t\t\t\t\t<img");
 
-WriteLiteral(" src=\"loader.gif\"");
+WriteLiteral(" src=\"images/loader.gif\"");
 
 WriteLiteral(" data-src=\"");
 
 
 #line 22 "PoliticianList.cshtml"
-                                Write(Url.Content(p.ImageName));
+                                       Write(Url.Content(p.ImageName));
 
 
 #line default
