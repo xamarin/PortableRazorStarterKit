@@ -11,6 +11,12 @@ namespace iOSCongress
 
 		public HybridWebView(UIWebView uiWebView) {
 			webView = uiWebView;
+			webView.ShouldStartLoad += HandleShouldStartLoad;
+		}
+
+		bool HandleShouldStartLoad (UIWebView webView, NSUrlRequest request, UIWebViewNavigationType navigationType) {
+			var handled = RouteHandler.HandleRequest (request.Url.AbsoluteString);
+			return !handled;
 		}
 
 		#region IHybridWebView implementation

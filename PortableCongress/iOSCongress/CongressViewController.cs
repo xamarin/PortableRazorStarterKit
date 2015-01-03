@@ -22,8 +22,6 @@ namespace iOSCongress
 		{
 			base.ViewDidLoad ();
 
-			webView.ShouldStartLoad += HandleShouldStartLoad;
-
 			var politicianController = new PoliticianController (
 				                        new HybridWebView (webView), 
 				                        new DataAccess ());
@@ -31,11 +29,6 @@ namespace iOSCongress
 			PortableRazor.RouteHandler.RegisterController ("Politician", politicianController);
 
 			politicianController.ShowPoliticianList ();
-		}
-			
-		bool HandleShouldStartLoad (UIWebView webView, NSUrlRequest request, UIWebViewNavigationType navigationType) {
-			var handled = PortableRazor.RouteHandler.HandleRequest (request.Url.AbsoluteString);
-			return !handled;
 		}
 	}
 }
