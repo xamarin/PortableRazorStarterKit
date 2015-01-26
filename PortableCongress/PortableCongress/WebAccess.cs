@@ -58,14 +58,24 @@ namespace PortableCongress
 
             var votes = (from item in voteFeed.Descendants ("item")
                 select new Vote {
-                    Question = item.Element ("vote").Element ("question").Value,
-                    PublicationDate = DateTime.Parse (item.Element ("vote").Element ("created").Value),
-                    Link = item.Element ("vote").Element ("link").Value,
-                    Value = item.Element ("option").Element ("value").Value,
-                    RelatedBillId = item.Element ("vote").Element ("related_bill").Value
+                    Question = ParseItemValue(item, "vote", "question"),
+                    PublicationDate = DateTime.Parse (ParseItemValue(item, "vote", "created", "1/1/2000")),
+                    Link = ParseItemValue(item, "vote", "link"),
+                    Value = ParseItemValue(item, "option", "value"),
+                    RelatedBillId = ParseItemValue(item, "vote", "related_bill")
                 }).Where (v => v.RelatedBillId != "null").OrderByDescending (v => v.PublicationDate).ToList ();
 
             return votes;
+        }
+
+        static string ParseItemValue(XElement item, string itemName, string elementName, string s = "")
+        {
+            if(item.Element(itemName) != null){
+                if(item.Element (itemName).Element (elementName) != null){
+                    s = item.Element (itemName).Element (elementName).Value;
+                }
+            }
+            return s;
         }
 
         static Bill LoadBill (Stream stream, int id)
